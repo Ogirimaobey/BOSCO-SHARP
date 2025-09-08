@@ -51,6 +51,13 @@
             font-weight: 900;
             letter-spacing: -0.05em;
         }
+        /* Style for Calendly placeholder */
+        .calendly-placeholder {
+            background-color: #1a1a1a;
+            border: 2px dashed #444;
+            border-radius: 1rem;
+            min-height: 400px;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -63,9 +70,9 @@
                 <a href="#services" class="text-gray-300 hover:accent-gold transition">Services</a>
                 <a href="#portfolio" class="text-gray-300 hover:accent-gold transition">Portfolio</a>
                 <a href="#about" class="text-gray-300 hover:accent-gold transition">About</a>
-                <a href="#contact" class="text-gray-300 hover:accent-gold transition">Contact</a>
+                <a href="#consultation" class="text-gray-300 hover:accent-gold transition">Consultation</a>
             </div>
-            <a href="#contact" class="hidden lg:inline-block bg-accent-gold text-black font-bold py-2 px-6 rounded-lg hover:bg-accent-gold-dark transition shadow-lg">Get a Quote</a>
+            <a href="#consultation" class="hidden lg:inline-block bg-accent-gold text-black font-bold py-2 px-6 rounded-lg hover:bg-accent-gold-dark transition shadow-lg">Book a Call</a>
             <button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
@@ -75,9 +82,9 @@
             <a href="#services" class="block text-center py-3 px-4 text-gray-300 hover:accent-gold transition">Services</a>
             <a href="#portfolio" class="block text-center py-3 px-4 text-gray-300 hover:accent-gold transition">Portfolio</a>
             <a href="#about" class="block text-center py-3 px-4 text-gray-300 hover:accent-gold transition">About</a>
-            <a href="#contact" class="block text-center py-3 px-4 text-gray-300 hover:accent-gold transition">Contact</a>
+            <a href="#consultation" class="block text-center py-3 px-4 text-gray-300 hover:accent-gold transition">Consultation</a>
             <div class="p-4">
-                <a href="#contact" class="block w-full text-center bg-accent-gold text-black font-bold py-3 px-6 rounded-lg hover:bg-accent-gold-dark transition shadow-lg">Get a Quote</a>
+                <a href="#consultation" class="block w-full text-center bg-accent-gold text-black font-bold py-3 px-6 rounded-lg hover:bg-accent-gold-dark transition shadow-lg">Book a Call</a>
             </div>
         </div>
     </header>
@@ -96,7 +103,7 @@
                 </p>
                 <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 fade-in" style="transition-delay: 400ms;">
                     <a href="#portfolio" class="w-full sm:w-auto bg-accent-gold text-black font-bold py-4 px-8 rounded-lg hover:bg-accent-gold-dark transition shadow-xl text-lg">View Our Work</a>
-                    <a href="#services" class="w-full sm:w-auto bg-transparent border-2 border-gray-400 text-white font-bold py-4 px-8 rounded-lg hover:bg-gray-800 hover:border-gray-600 transition text-lg">Explore Services</a>
+                    <a href="#consultation" class="w-full sm:w-auto bg-transparent border-2 border-gray-400 text-white font-bold py-4 px-8 rounded-lg hover:bg-gray-800 hover:border-gray-600 transition text-lg">Book a Consultation</a>
                 </div>
             </div>
         </section>
@@ -149,6 +156,14 @@
                         <h3 class="text-2xl font-bold text-white mb-3">Custom Souvenirs</h3>
                         <p class="text-gray-400">Memorable, custom-branded gifts and souvenirs for your corporate events, weddings, and special occasions.</p>
                     </div>
+                    <!-- Service Card 6: Email Marketing -->
+                    <div class="glass-effect p-8 rounded-2xl fade-in" style="transition-delay: 500ms;">
+                        <div class="bg-accent-gold text-black rounded-full h-16 w-16 flex items-center justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M22 4H2C.9 4 0 4.9 0 6v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H2V8l10 7 10-7v10zM12 13L2 6h20l-10 7z"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Digital & Email Marketing</h3>
+                        <p class="text-gray-400">Extend your brand's reach with beautifully designed email campaigns and digital marketing strategies that engage and convert.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -166,7 +181,7 @@
                     <a href="#" class="group block overflow-hidden rounded-xl fade-in"><img src="https://placehold.co/600x400/e5e5e5/0a0a0a?text=Storefront+Signage" alt="Storefront Signage Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"></a>
                     <a href="#" class="group block overflow-hidden rounded-xl fade-in"><img src="https://placehold.co/600x400/333333/ffffff?text=Corporate+Branding" alt="Corporate Branding Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"></a>
                     <a href="#" class="group block overflow-hidden rounded-xl fade-in"><img src="https://placehold.co/600x400/e5e5e5/0a0a0a?text=Event+Souvenirs" alt="Event Souvenirs Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"></a>
-                    <a href="#" class="group block overflow-hidden rounded-xl fade-in"><img src="https://placehold.co/600x400/facc15/0a0a0a?text=Product+Labels" alt="Product Labels Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"></a>
+                    <a href="#" class="group block overflow-hidden rounded-xl fade-in"><img src="https://placehold.co/600x400/facc15/0a0a0a?text=Email+Campaign" alt="Email Campaign Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"></a>
                     <a href="#" class="group block overflow-hidden rounded-xl fade-in"><img src="https://placehold.co/600x400/333333/ffffff?text=Custom+Print" alt="Custom Print Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"></a>
                 </div>
             </div>
@@ -192,20 +207,41 @@
             </div>
         </section>
 
+        <!-- Consultation Section -->
+        <section id="consultation" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white fade-in">Schedule Your Free Consultation</h2>
+                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto fade-in">Ready to discuss your project? Pick a time that works for you below.</p>
+                </div>
+                <div class="max-w-4xl mx-auto fade-in">
+                    <!-- Calendly embed code goes here -->
+                    <!-- To add your Calendly, replace the div below with the embed code from your Calendly account -->
+                    <div class="calendly-placeholder flex items-center justify-center text-center p-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Your Calendly Scheduling Widget</h3>
+                            <p class="text-gray-400 mt-2">This is where your interactive calendar will appear. Simply paste your Calendly embed code here to allow clients to book meetings directly.</p>
+                        </div>
+                    </div>
+                    <!-- End of Calendly embed placeholder -->
+                </div>
+            </div>
+        </section>
+        
         <!-- CTA Section -->
         <section class="py-20 md:py-32 bg-accent-gold">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-4xl md:text-5xl font-extrabold text-black fade-in">Ready to Make Your Brand<br>Extraordinary?</h2>
-                <p class="mt-4 text-lg text-gray-800 max-w-2xl mx-auto fade-in">Let's discuss how we can bring your vision to life. Get in touch for a custom quote.</p>
-                <a href="#contact" class="mt-8 inline-block bg-black text-white font-bold py-4 px-10 rounded-lg hover:bg-gray-800 transition shadow-lg text-lg fade-in">Contact Us Today</a>
+                <p class="mt-4 text-lg text-gray-800 max-w-2xl mx-auto fade-in">Let's discuss how we can bring your vision to life. Book a free consultation today.</p>
+                <a href="#consultation" class="mt-8 inline-block bg-black text-white font-bold py-4 px-10 rounded-lg hover:bg-gray-800 transition shadow-lg text-lg fade-in">Book a Free Consultation</a>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 md:py-32">
+        <section id="contact" class="py-20 md:py-32 bg-[#111]">
             <div class="container mx-auto px-6">
                  <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white fade-in">Get In Touch</h2>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white fade-in">Visit or Call Us</h2>
                     <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto fade-in">We're located in Abuja and ready to work with you.</p>
                 </div>
                 <div class="flex flex-col lg:flex-row gap-10 lg:gap-20">
@@ -307,3 +343,4 @@
 
 </body>
 </html>
+
