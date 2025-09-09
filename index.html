@@ -5,340 +5,196 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bosco Sharp Universal Concept - Extraordinary Branding & Printing</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a;
-            color: #e5e5e5;
+            background-color: #111111;
+            color: #E5E7EB;
+        }
+        .gold-accent {
+            color: #D4AF37;
+        }
+        .gold-bg {
+            background-color: #D4AF37;
+        }
+        .gold-border {
+            border-color: #D4AF37;
         }
         .hero-bg {
-            background-color: #111;
-            background-image: 
-                linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 1)),
-                url('https://placehold.co/1920x1080/1a1a1a/333333?text=High-End+Printing+Process');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(rgba(17, 17, 17, 0.8), rgba(17, 17, 17, 0.8)), url('https://placehold.co/1920x1080/1a1a1a/333333?text=BOSCO+SHARP') center center/cover no-repeat;
         }
-        .accent-gold {
-            color: #facc15; /* yellow-400 */
-        }
-        .bg-accent-gold {
-            background-color: #facc15;
-        }
-        .border-accent-gold {
-            border-color: #facc15;
-        }
-        .hover\:bg-accent-gold-dark:hover {
-            background-color: #eab308; /* yellow-500 */
-        }
-        .glass-effect {
-            background: rgba(26, 26, 26, 0.5);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .fade-in {
+        /* Animation for elements fading in on scroll */
+        .fade-in-section {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        .fade-in.visible {
+        .fade-in-section.is-visible {
             opacity: 1;
             transform: translateY(0);
-        }
-        .brand-text {
-            font-weight: 900;
-            letter-spacing: -0.05em;
-        }
-        /* Style for Calendly placeholder */
-        .calendly-placeholder {
-            background-color: #1a1a1a;
-            border: 2px dashed #444;
-            border-radius: 1rem;
-            min-height: 400px;
         }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Header -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl brand-text text-white">BOSCO<span class="accent-gold">SHARP</span></a>
-            <div class="hidden lg:flex items-center space-x-8">
-                <a href="#services" class="text-gray-300 hover:accent-gold transition">Services</a>
-                <a href="#portfolio" class="text-gray-300 hover:accent-gold transition">Portfolio</a>
-                <a href="#about" class="text-gray-300 hover:accent-gold transition">About</a>
-                <a href="#consultation" class="text-gray-300 hover:accent-gold transition">Consultation</a>
-            </div>
-            <a href="#consultation" class="hidden lg:inline-block bg-accent-gold text-black font-bold py-2 px-6 rounded-lg hover:bg-accent-gold-dark transition shadow-lg">Book a Call</a>
-            <button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-black bg-opacity-90">
-            <a href="#services" class="block text-center py-3 px-4 text-gray-300 hover:accent-gold transition">Services</a>
-            <a href="#portfolio" class="block text-center py-3 px-4 text-gray-300 hover:accent-gold transition">Portfolio</a>
-            <a href="#about" class="block text-center py-3 px-4 text-gray-300 hover:accent-gold transition">About</a>
-            <a href="#consultation" class="block text-center py-3 px-4 text-gray-300 hover:accent-gold transition">Consultation</a>
-            <div class="p-4">
-                <a href="#consultation" class="block w-full text-center bg-accent-gold text-black font-bold py-3 px-6 rounded-lg hover:bg-accent-gold-dark transition shadow-lg">Book a Call</a>
+    <header class="bg-black bg-opacity-80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <!-- Flex container for responsive header -->
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <div class="text-2xl font-black tracking-wider gold-accent">
+                    BOSCO<span class="text-white">SHARP</span>
+                </div>
+                <!-- Navigation links stack on mobile, row on larger screens -->
+                <nav class="mt-4 sm:mt-0">
+                    <ul class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm font-medium">
+                        <li><a href="#services" class="hover:gold-accent transition-colors duration-300">Services</a></li>
+                        <li><a href="#portfolio" class="hover:gold-accent transition-colors duration-300">Portfolio</a></li>
+                        <li><a href="#contact" class="hover:gold-accent transition-colors duration-300">Contact</a></li>
+                        <li>
+                            <a href="#quote" class="bg-transparent border-2 gold-border text-white font-bold py-2 px-4 rounded-full hover:gold-bg hover:text-black transition-all duration-300">
+                                Book a Consultation
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero-bg min-h-screen flex items-center justify-center pt-24 pb-12">
-            <div class="text-center px-4">
-                <h1 class="text-5xl md:text-7xl lg:text-8xl brand-text text-white leading-tight fade-in">
-                    ORDINARY IS EVERYWHERE.
-                    <br>
-                    <span class="accent-gold">EXTRAORDINARY IS BOSCOSHARP.</span>
+        <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center pt-20">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider leading-tight">
+                    <span class="text-gray-400">Ordinary is Everywhere.</span><br>
+                    <span class="gold-accent">Extraordinary is BoscoSharp.</span>
                 </h1>
-                <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-300 fade-in" style="transition-delay: 200ms;">
-                    We craft premium printing, packaging, and branding solutions that make your vision unforgettable. Step beyond the ordinary.
+                <p class="mt-6 text-base md:text-lg max-w-2xl mx-auto text-gray-300">
+                    Your premier partner for world-class Printing, Packaging, Signage, and Digital Marketing. We transform concepts into tangible excellence.
                 </p>
-                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 fade-in" style="transition-delay: 400ms;">
-                    <a href="#portfolio" class="w-full sm:w-auto bg-accent-gold text-black font-bold py-4 px-8 rounded-lg hover:bg-accent-gold-dark transition shadow-xl text-lg">View Our Work</a>
-                    <a href="#consultation" class="w-full sm:w-auto bg-transparent border-2 border-gray-400 text-white font-bold py-4 px-8 rounded-lg hover:bg-gray-800 hover:border-gray-600 transition text-lg">Book a Consultation</a>
+                <div class="mt-10">
+                    <a href="#quote" class="gold-bg text-black font-bold py-4 px-8 rounded-full text-lg hover:bg-yellow-500 transition-transform duration-300 inline-block transform hover:scale-105">
+                        Get a Custom Quote
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="py-20 md:py-32 bg-[#111]">
+        <section id="services" class="py-20 bg-[#1a1a1a]">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white fade-in">Our Expertise</h2>
-                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto fade-in">From concept to creation, we provide a complete suite of branding services.</p>
+                <div class="text-center mb-12 fade-in-section">
+                    <h2 class="text-3xl md:text-4xl font-bold">Our Core Services</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-400">We provide a complete suite of services to build and elevate your brand.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service Card 1: Packaging -->
-                    <div class="glass-effect p-8 rounded-2xl fade-in">
-                        <div class="bg-accent-gold text-black rounded-full h-16 w-16 flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7.999a1 1 0 0 0-.516-.874l-7.5-4.499a1 1 0 0 0-.968 0l-7.5 4.499A1 1 0 0 0 5 7.999v8.002a1 1 0 0 0 .516.874l7.5 4.499a1 1 0 0 0 .968 0l7.5-4.499a1 1 0 0 0 .516-.874V7.999zM12 2.291l6.5 3.9-6.5 3.9-6.5-3.9L12 2.291zm-6 4.608l6.5 3.9v7.801l-6.5-3.9V6.899zm13 0v7.801l-6.5 3.9v-7.801l6.5-3.9z"/></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Expert Packaging</h3>
-                        <p class="text-gray-400">Custom boxes, labels, and packaging solutions that protect your product and elevate your brand's unboxing experience.</p>
+                <!-- Responsive Grid: 1 col on mobile, 2 on tablets, 4 on desktop -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="bg-black p-8 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300 fade-in-section">
+                        <div class="text-4xl gold-accent mb-4">🎨</div>
+                        <h3 class="text-xl font-bold mb-2">Printing & Branding</h3>
+                        <p class="text-gray-400 text-sm">From business cards to large format prints, we deliver sharp, vibrant, and impactful results.</p>
                     </div>
-                    <!-- Service Card 2: Signage -->
-                    <div class="glass-effect p-8 rounded-2xl fade-in" style="transition-delay: 100ms;">
-                        <div class="bg-accent-gold text-black rounded-full h-16 w-16 flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1V2H7zM6 6H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h1V6zm3-4h6v3h-6V2zm8 0h-1v3h2V3a1 1 0 0 0-1-1zm-1 4h2v14h-2V6zM9 6h6v14H9V6zM7 5V4H6v1h1zM4 20v-1H2v2h12v-1H4z"/></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Impactful Signage</h3>
-                        <p class="text-gray-400">From storefronts to event banners, we create high-quality, durable signage that commands attention and directs your audience.</p>
+                    <!-- Service Card 2 -->
+                    <div class="bg-black p-8 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300 fade-in-section">
+                        <div class="text-4xl gold-accent mb-4">📦</div>
+                        <h3 class="text-xl font-bold mb-2">Packaging & Signage</h3>
+                        <p class="text-gray-400 text-sm">Creative, durable, and expert packaging and signage solutions that make your brand stand out.</p>
                     </div>
-                    <!-- Service Card 3: Printing -->
-                    <div class="glass-effect p-8 rounded-2xl fade-in" style="transition-delay: 200ms;">
-                        <div class="bg-accent-gold text-black rounded-full h-16 w-16 flex items-center justify-center mb-6">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Premium Printing</h3>
-                        <p class="text-gray-400">Business cards, flyers, brochures, and more, all produced with superior materials and print quality for a professional finish.</p>
+                    <!-- Service Card 3 -->
+                    <div class="bg-black p-8 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300 fade-in-section">
+                        <div class="text-4xl gold-accent mb-4">🎁</div>
+                        <h3 class="text-xl font-bold mb-2">Custom Souvenirs</h3>
+                        <p class="text-gray-400 text-sm">Memorable, custom-branded souvenirs for corporate events, weddings, and special occasions.</p>
                     </div>
-                    <!-- Service Card 4: Branding -->
-                    <div class="glass-effect p-8 rounded-2xl fade-in" style="transition-delay: 300ms;">
-                        <div class="bg-accent-gold text-black rounded-full h-16 w-16 flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm2.22 13.57c-.42.27-.92.43-1.47.43-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5c.55 0 1.05.16 1.47.43l1.1-1.1C13.84 8.35 12.97 8 12 8c-2.76 0-5 2.24-5 5s2.24 5 5 5c.97 0 1.84-.35 2.57-.93l-1.1-1.1zM18 12c0 .97-.35 1.84-.93 2.57l-1.1-1.1c.27-.42.43-.92.43-1.47 0-1.93-1.57-3.5-3.5-3.5-.55 0-1.05.16-1.47.43l-1.1-1.1C11.16 8.35 12.03 8 13 8c2.76 0 5 2.24 5 5z"/></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Creative Branding</h3>
-                        <p class="text-gray-400">We help you build a cohesive brand identity, from logo design to a complete style guide that reflects your company's values.</p>
-                    </div>
-                     <!-- Service Card 5: Souvenirs -->
-                    <div class="glass-effect p-8 rounded-2xl fade-in" style="transition-delay: 400ms;">
-                        <div class="bg-accent-gold text-black rounded-full h-16 w-16 flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 4.5c.28 0 .5.22.5.5v14c0 .28-.22.5-.5.5h-17c-.28 0-.5-.22-.5-.5v-14c0-.28.22-.5.5-.5h17m0-2h-17C1.57 2.5 0 4.07 0 6v12c0 1.93 1.57 3.5 3.5 3.5h17c1.93 0 3.5-1.57 3.5-3.5V6c0-1.93-1.57-3.5-3.5-3.5z"/><path d="M12 16.5c2.06 0 3.75-1.69 3.75-3.75S14.06 9 12 9s-3.75 1.69-3.75 3.75 1.69 3.75 3.75 3.75zm0-6c1.24 0 2.25 1.01 2.25 2.25S13.24 15 12 15s-2.25-1.01-2.25-2.25S10.76 10.5 12 10.5z"/></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Custom Souvenirs</h3>
-                        <p class="text-gray-400">Memorable, custom-branded gifts and souvenirs for your corporate events, weddings, and special occasions.</p>
-                    </div>
-                    <!-- Service Card 6: Email Marketing -->
-                    <div class="glass-effect p-8 rounded-2xl fade-in" style="transition-delay: 500ms;">
-                        <div class="bg-accent-gold text-black rounded-full h-16 w-16 flex items-center justify-center mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M22 4H2C.9 4 0 4.9 0 6v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H2V8l10 7 10-7v10zM12 13L2 6h20l-10 7z"/></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Digital & Email Marketing</h3>
-                        <p class="text-gray-400">Extend your brand's reach with beautifully designed email campaigns and digital marketing strategies that engage and convert.</p>
+                    <!-- Service Card 4 -->
+                    <div class="bg-black p-8 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300 fade-in-section">
+                        <div class="text-4xl gold-accent mb-4">📈</div>
+                        <h3 class="text-xl font-bold mb-2">Digital & Email Marketing</h3>
+                        <p class="text-gray-400 text-sm">Engage your audience with strategic email campaigns and newsletters that drive growth.</p>
                     </div>
                 </div>
             </div>
         </section>
         
         <!-- Portfolio Section -->
-        <section id="portfolio" class="py-20 md:py-32">
+        <section id="portfolio" class="py-20 bg-[#111111]">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white fade-in">Our Extraordinary Work</h2>
-                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto fade-in">A glimpse into the brands we've helped elevate.</p>
+                <div class="text-center mb-12 fade-in-section">
+                    <h2 class="text-3xl md:text-4xl font-bold">Our Work Speaks for Itself</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-gray-400">A glimpse into the extraordinary quality we deliver.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Portfolio items -->
-                    <a href="#" class="group block overflow-hidden rounded-xl fade-in"><img src="https://placehold.co/600x400/facc15/0a0a0a?text=Luxury+Packaging" alt="Luxury Packaging Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"></a>
-                    <a href="#" class="group block overflow-hidden rounded-xl fade-in"><img src="https://placehold.co/600x400/e5e5e5/0a0a0a?text=Storefront+Signage" alt="Storefront Signage Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"></a>
-                    <a href="#" class="group block overflow-hidden rounded-xl fade-in"><img src="https://placehold.co/600x400/333333/ffffff?text=Corporate+Branding" alt="Corporate Branding Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"></a>
-                    <a href="#" class="group block overflow-hidden rounded-xl fade-in"><img src="https://placehold.co/600x400/e5e5e5/0a0a0a?text=Event+Souvenirs" alt="Event Souvenirs Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"></a>
-                    <a href="#" class="group block overflow-hidden rounded-xl fade-in"><img src="https://placehold.co/600x400/facc15/0a0a0a?text=Email+Campaign" alt="Email Campaign Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"></a>
-                    <a href="#" class="group block overflow-hidden rounded-xl fade-in"><img src="https://placehold.co/600x400/333333/ffffff?text=Custom+Print" alt="Custom Print Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"></a>
+                <!-- Responsive Grid for Portfolio -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="rounded-lg overflow-hidden group fade-in-section"><img src="https://placehold.co/600x400/D4AF37/000000?text=Packaging" alt="Project 1" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="rounded-lg overflow-hidden group fade-in-section"><img src="https://placehold.co/600x400/FFFFFF/000000?text=Branding" alt="Project 2" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="rounded-lg overflow-hidden group fade-in-section"><img src="https://placehold.co/600x400/D4AF37/000000?text=Signage" alt="Project 3" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="rounded-lg overflow-hidden group fade-in-section"><img src="https://placehold.co/600x400/FFFFFF/000000?text=Souvenir" alt="Project 4" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="rounded-lg overflow-hidden group fade-in-section"><img src="https://placehold.co/600x400/D4AF37/000000?text=Print" alt="Project 5" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="rounded-lg overflow-hidden group fade-in-section"><img src="https://placehold.co/600x400/FFFFFF/000000?text=Marketing" alt="Project 6" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"></div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-20 md:py-32 bg-[#111]">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col lg:flex-row items-center gap-12">
-                    <div class="lg:w-1/2 fade-in">
-                        <img src="https://placehold.co/600x600/333/facc15?text=Abubakar+Orengwu+Bosco" alt="Abubakar Orengwu Bosco, Founder" class="rounded-2xl shadow-2xl">
-                    </div>
-                    <div class="lg:w-1/2 text-center lg:text-left fade-in" style="transition-delay: 200ms;">
-                        <h2 class="text-4xl md:text-5xl font-bold text-white">The Visionary Behind the Brand</h2>
-                        <p class="mt-6 text-lg text-gray-400">
-                            Led by Abubakar Orengwu Bosco, our team is driven by a single passion: to create work that is not just seen, but felt. We believe that great design is a combination of sharp strategy and flawless execution. At Bosco Sharp, we reject the ordinary and dedicate ourselves to crafting extraordinary brand experiences that leave a lasting impression.
-                        </p>
-                        <p class="mt-4 text-lg text-gray-400">
-                            Based in the heart of Abuja, we've had the privilege of collaborating with a diverse range of clients, helping them to build brands that are as powerful as they are beautiful.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Consultation Section -->
-        <section id="consultation" class="py-20 md:py-32">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white fade-in">Schedule Your Free Consultation</h2>
-                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto fade-in">Ready to discuss your project? Pick a time that works for you below.</p>
-                </div>
-                <div class="max-w-4xl mx-auto fade-in">
-                    <!-- Calendly embed code goes here -->
-                    <!-- To add your Calendly, replace the div below with the embed code from your Calendly account -->
-                    <div class="calendly-placeholder flex items-center justify-center text-center p-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white">Your Calendly Scheduling Widget</h3>
-                            <p class="text-gray-400 mt-2">This is where your interactive calendar will appear. Simply paste your Calendly embed code here to allow clients to book meetings directly.</p>
-                        </div>
-                    </div>
-                    <!-- End of Calendly embed placeholder -->
-                </div>
-            </div>
-        </section>
-        
-        <!-- CTA Section -->
-        <section class="py-20 md:py-32 bg-accent-gold">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-black fade-in">Ready to Make Your Brand<br>Extraordinary?</h2>
-                <p class="mt-4 text-lg text-gray-800 max-w-2xl mx-auto fade-in">Let's discuss how we can bring your vision to life. Book a free consultation today.</p>
-                <a href="#consultation" class="mt-8 inline-block bg-black text-white font-bold py-4 px-10 rounded-lg hover:bg-gray-800 transition shadow-lg text-lg fade-in">Book a Free Consultation</a>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 md:py-32 bg-[#111]">
-            <div class="container mx-auto px-6">
-                 <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white fade-in">Visit or Call Us</h2>
-                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto fade-in">We're located in Abuja and ready to work with you.</p>
-                </div>
-                <div class="flex flex-col lg:flex-row gap-10 lg:gap-20">
-                    <div class="lg:w-1/2 fade-in">
-                        <div class="space-y-6">
-                            <div class="flex items-start space-x-4">
-                                <div class="bg-gray-800 p-3 rounded-full"><svg class="w-6 h-6 accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
-                                <div>
-                                    <h3 class="text-xl font-semibold text-white">Our Office</h3>
-                                    <p class="text-gray-400">Suite B201, First Floor, God's Heritage Plaza</p>
-                                    <p class="text-gray-400">Old Federal Secretariat Rd, Area 1, Abuja, Nigeria</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start space-x-4">
-                                 <div class="bg-gray-800 p-3 rounded-full"><svg class="w-6 h-6 accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div>
-                                <div>
-                                    <h3 class="text-xl font-semibold text-white">Phone Numbers</h3>
-                                    <p class="text-gray-400"><a href="tel:07054825152" class="hover:accent-gold">07054825152</a></p>
-                                    <p class="text-gray-400"><a href="tel:07043595530" class="hover:accent-gold">07043595530</a></p>
-                                </div>
-                            </div>
-                             <div class="flex items-start space-x-4">
-                                 <div class="bg-gray-800 p-3 rounded-full"><svg class="w-6 h-6 accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM4 10a6 6 0 1112 0 6 6 0 01-12 0z" clip-rule="evenodd"></path><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path></svg></div>
-                                <div>
-                                    <h3 class="text-xl font-semibold text-white">Follow Us</h3>
-                                    <p class="text-gray-400"><a href="https://www.instagram.com/bosco_sharp_universal_concept" target="_blank" class="hover:accent-gold">Instagram</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:w-1/2 h-96 lg:h-auto rounded-2xl overflow-hidden shadow-2xl fade-in" style="transition-delay: 200ms;">
-                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.598284534725!2d7.479904814786443!3d9.00940529352932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e7456d6d45b7b%3A0x8f3c46a6e7c10b14!2sOld%20Federal%20Secretariat%20Complex!5e0!3m2!1sen!2sng!4v1662650000000!5m2!1sen!2sng" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
+        <!-- CTA Section / Consultation -->
+        <section id="quote" class="bg-[#1a1a1a] py-20">
+            <div class="container mx-auto px-6 text-center fade-in-section">
+                <h2 class="text-3xl md:text-4xl font-bold">Ready to Be Extraordinary?</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-400">Let's discuss how we can elevate your brand. Schedule a free, no-obligation consultation with our experts today.</p>
+                <div class="mt-8">
+                    <a href="#" class="gold-bg text-black font-bold py-4 px-8 rounded-full text-lg hover:bg-yellow-500 transition-transform duration-300 inline-block transform hover:scale-105">
+                        Book a Free Consultation
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-black py-8">
-        <div class="container mx-auto px-6 text-center text-gray-500">
-            <p>&copy; <span id="year"></span> Bosco Sharp Universal Concept. All Rights Reserved.</p>
-            <p class="mt-2 text-sm">Designed with extraordinary passion.</p>
+    <footer id="contact" class="bg-black py-10">
+        <div class="container mx-auto px-6">
+            <!-- Responsive footer layout -->
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-6 md:space-y-0">
+                <div>
+                    <h3 class="text-xl font-bold gold-accent">BOSCO<span class="text-white">SHARP</span></h3>
+                    <p class="text-gray-400 text-sm mt-2 max-w-xs">
+                        Suite B201, God's Heritage Plaza, Old Federal Secretariat Rd. Area 1, Abuja, Nigeria.
+                    </p>
+                    <p class="text-gray-400 text-sm mt-2">
+                        <a href="tel:07054825152" class="hover:gold-accent">07054825152</a>, <a href="tel:07043595530" class="hover:gold-accent">07043595530</a>
+                    </p>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    <p>&copy; <span id="year"></span> Bosco Sharp Universal Concept. All Rights Reserved.</p>
+                    <p class="mt-1">Website by Fundbridge Africa</p>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-        // JavaScript for mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Sticky header with background on scroll
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('glass-effect', 'shadow-lg');
-            } else {
-                header.classList.remove('glass-effect', 'shadow-lg');
-            }
-        });
-
         // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Scroll reveal animation
-        const observer = new IntersectionObserver((entries) => {
+        // Intersection Observer for fade-in animations
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('is-visible');
                 }
             });
         }, {
             threshold: 0.1
         });
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+        sections.forEach(section => {
+            observer.observe(section);
         });
-
     </script>
 
 </body>
