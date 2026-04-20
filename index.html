@@ -3,200 +3,357 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bosco Sharp Universal Concept - Extraordinary Branding & Printing</title>
+    <title>BOSCOSharp LTD | Extraordinary Branding, Packaging & Signage</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --brand-yellow: #E6FF00; /* Neon yellow from your logo */
+            --brand-black: #000000;
+            --brand-gray: #111111;
+        }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #111111;
-            color: #E5E7EB;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--brand-black);
+            color: #ffffff;
         }
-        .gold-accent {
-            color: #D4AF37;
-        }
-        .gold-bg {
-            background-color: #D4AF37;
-        }
-        .gold-border {
-            border-color: #D4AF37;
-        }
-        .hero-bg {
-            background: linear-gradient(rgba(17, 17, 17, 0.8), rgba(17, 17, 17, 0.8)), url('https://placehold.co/1920x1080/1a1a1a/333333?text=BOSCO+SHARP') center center/cover no-repeat;
-        }
-        /* Animation for elements fading in on scroll */
-        .fade-in-section {
+        .text-brand { color: var(--brand-yellow); }
+        .bg-brand { background-color: var(--brand-yellow); }
+        .border-brand { border-color: var(--brand-yellow); }
+
+        /* Smooth reveal animation */
+        .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
-        .fade-in-section.is-visible {
+        .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Gradient overlay for hero */
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,1) 100%);
+        }
+
+        /* Glassmorphism for cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: var(--brand-yellow);
+            background: rgba(255, 255, 255, 0.05);
+        }
     </style>
 </head>
-<body class="antialiased">
+<body class="overflow-x-hidden">
 
-    <!-- Header -->
-    <header class="bg-black bg-opacity-80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
-        <div class="container mx-auto px-6 py-4">
-            <!-- Flex container for responsive header -->
-            <div class="flex flex-col sm:flex-row justify-between items-center">
-                <div class="text-2xl font-black tracking-wider gold-accent">
-                    BOSCO<span class="text-white">SHARP</span>
-                </div>
-                <!-- Navigation links stack on mobile, row on larger screens -->
-                <nav class="mt-4 sm:mt-0">
-                    <ul class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-8 text-sm font-medium">
-                        <li><a href="#services" class="hover:gold-accent transition-colors duration-300">Services</a></li>
-                        <li><a href="#portfolio" class="hover:gold-accent transition-colors duration-300">Portfolio</a></li>
-                        <li><a href="#contact" class="hover:gold-accent transition-colors duration-300">Contact</a></li>
-                        <li>
-                            <a href="#quote" class="bg-transparent border-2 gold-border text-white font-bold py-2 px-4 rounded-full hover:gold-bg hover:text-black transition-all duration-300">
-                                Book a Consultation
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+    <!-- NAVIGATION -->
+    <header class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo - Using placeholder for your GitHub path -->
+            <div class="flex items-center">
+                <img src="logo.jpg" alt="BOSCOSharp" class="h-10 md:h-12 w-auto">
             </div>
+
+            <!-- Desktop Nav -->
+            <ul class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest text-gray-400">
+                <li><a href="#services" class="hover:text-brand transition">Services</a></li>
+                <li><a href="#approach" class="hover:text-brand transition">Approach</a></li>
+                <li><a href="#portfolio" class="hover:text-brand transition">Work</a></li>
+                <li><a href="#contact" class="hover:text-brand transition">Contact</a></li>
+            </ul>
+
+            <!-- CTA Button -->
+            <a href="#contact" class="hidden sm:block bg-brand text-black px-6 py-2.5 rounded-full font-extrabold text-sm hover:scale-105 transition transform">
+                GET A QUOTE
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-btn" class="md:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black border-b border-white/10 px-6 py-6 space-y-4 font-bold uppercase tracking-widest text-center">
+            <a href="#services" class="block py-2 text-gray-400">Services</a>
+            <a href="#approach" class="block py-2 text-gray-400">Approach</a>
+            <a href="#portfolio" class="block py-2 text-gray-400">Work</a>
+            <a href="#contact" class="block py-2 text-brand">Contact</a>
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center pt-20">
-            <div class="container mx-auto px-6">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider leading-tight">
-                    <span class="text-gray-400">Ordinary is Everywhere.</span><br>
-                    <span class="gold-accent">Extraordinary is BoscoSharp.</span>
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Abstract Background Shape -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand/20 blur-[120px] rounded-full"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brand/10 blur-[120px] rounded-full"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl">
+                <h2 class="text-brand font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-4 reveal">
+                    Ordinary is Everywhere
+                </h2>
+                <h1 class="text-5xl md:text-8xl font-black leading-[1.1] mb-8 reveal">
+                    Extraordinary is <br>
+                    <span class="text-brand">BOSCOSharp.</span>
                 </h1>
-                <p class="mt-6 text-base md:text-lg max-w-2xl mx-auto text-gray-300">
-                    Your premier partner for world-class Printing, Packaging, Signage, and Digital Marketing. We transform concepts into tangible excellence.
+                <p class="text-gray-400 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed reveal">
+                    We are a creative design and production venture specializing in world-class 
+                    branding, packaging, and signage solutions for startups and global brands.
                 </p>
-                <div class="mt-10">
-                    <a href="#quote" class="gold-bg text-black font-bold py-4 px-8 rounded-full text-lg hover:bg-yellow-500 transition-transform duration-300 inline-block transform hover:scale-105">
-                        Get a Custom Quote
+                <div class="flex flex-col sm:flex-row gap-4 reveal">
+                    <a href="#portfolio" class="bg-brand text-black px-10 py-5 rounded-xl font-black text-center transition hover:shadow-[0_0_30px_rgba(230,255,0,0.3)]">
+                        VIEW PORTFOLIO
+                    </a>
+                    <a href="#services" class="border-2 border-white/20 text-white px-10 py-5 rounded-xl font-black text-center hover:bg-white hover:text-black transition">
+                        OUR SERVICES
                     </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Services Section -->
-        <section id="services" class="py-20 bg-[#1a1a1a]">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12 fade-in-section">
-                    <h2 class="text-3xl md:text-4xl font-bold">Our Core Services</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-gray-400">We provide a complete suite of services to build and elevate your brand.</p>
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-24 bg-brand/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-brand font-bold tracking-widest text-sm mb-2">WHAT WE DO</h2>
+                <h3 class="text-4xl md:text-6xl font-black uppercase">Service Overview</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Branding Card -->
+                <div class="glass-card p-10 rounded-3xl reveal">
+                    <div class="mb-6 text-brand">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-black mb-4 uppercase">1. Branding</h4>
+                    <ul class="text-gray-400 space-y-2 mb-8 text-sm">
+                        <li>• Logo Design</li>
+                        <li>• Brand Identity & Strategy</li>
+                        <li>• Brand Guidelines (Brand Book)</li>
+                        <li>• Stationery & Business Cards</li>
+                    </ul>
+                    <div class="pt-6 border-t border-white/10">
+                        <p class="text-brand text-xs font-bold uppercase tracking-tighter"></p>
+                        <p class="text-white text-sm mt-1 italic">Consistent, memorable, and professional across all platforms.</p>
+                    </div>
                 </div>
-                <!-- Responsive Grid: 1 col on mobile, 2 on tablets, 4 on desktop -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Service Card 1 -->
-                    <div class="bg-black p-8 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300 fade-in-section">
-                        <div class="text-4xl gold-accent mb-4">🎨</div>
-                        <h3 class="text-xl font-bold mb-2">Printing & Branding</h3>
-                        <p class="text-gray-400 text-sm">From business cards to large format prints, we deliver sharp, vibrant, and impactful results.</p>
+
+                <!-- Packaging Card -->
+                <div class="glass-card p-10 rounded-3xl reveal" style="transition-delay: 0.1s;">
+                    <div class="mb-6 text-brand">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
                     </div>
-                    <!-- Service Card 2 -->
-                    <div class="bg-black p-8 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300 fade-in-section">
-                        <div class="text-4xl gold-accent mb-4">📦</div>
-                        <h3 class="text-xl font-bold mb-2">Packaging & Signage</h3>
-                        <p class="text-gray-400 text-sm">Creative, durable, and expert packaging and signage solutions that make your brand stand out.</p>
+                    <h4 class="text-2xl font-black mb-4 uppercase">2. Packaging</h4>
+                    <ul class="text-gray-400 space-y-2 mb-8 text-sm">
+                        <li>• Product Packaging Design</li>
+                        <li>• Label & Concept Design</li>
+                        <li>• 3D Mockups & Visualization</li>
+                        <li>• Print-Ready Production Files</li>
+                    </ul>
+                    <div class="pt-6 border-t border-white/10">
+                        <p class="text-brand text-xs font-bold uppercase tracking-tighter"></p>
+                        <p class="text-white text-sm mt-1 italic">Creating packaging that stands out on shelves and sells.</p>
                     </div>
-                    <!-- Service Card 3 -->
-                    <div class="bg-black p-8 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300 fade-in-section">
-                        <div class="text-4xl gold-accent mb-4">🎁</div>
-                        <h3 class="text-xl font-bold mb-2">Custom Souvenirs</h3>
-                        <p class="text-gray-400 text-sm">Memorable, custom-branded souvenirs for corporate events, weddings, and special occasions.</p>
+                </div>
+
+                <!-- Signage Card -->
+                <div class="glass-card p-10 rounded-3xl reveal" style="transition-delay: 0.2s;">
+                    <div class="mb-6 text-brand">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
                     </div>
-                    <!-- Service Card 4 -->
-                    <div class="bg-black p-8 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300 fade-in-section">
-                        <div class="text-4xl gold-accent mb-4">📈</div>
-                        <h3 class="text-xl font-bold mb-2">Digital & Email Marketing</h3>
-                        <p class="text-gray-400 text-sm">Engage your audience with strategic email campaigns and newsletters that drive growth.</p>
+                    <h4 class="text-2xl font-black mb-4 uppercase">3. Signage</h4>
+                    <ul class="text-gray-400 space-y-2 mb-8 text-sm">
+                        <li>• Indoor & Outdoor Solutions</li>
+                        <li>• Storefront & Banners</li>
+                        <li>• Vehicle Branding (Wraps)</li>
+                        <li>• Large-format Printing</li>
+                    </ul>
+                    <div class="pt-6 border-t border-white/10">
+                        <p class="text-brand text-xs font-bold uppercase tracking-tighter"></p>
+                        <p class="text-white text-sm mt-1 italic">Strengthening physical presence and attracting attention.</p>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="py-20 bg-[#111111]">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12 fade-in-section">
-                    <h2 class="text-3xl md:text-4xl font-bold">Our Work Speaks for Itself</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-gray-400">A glimpse into the extraordinary quality we deliver.</p>
+        </div>
+    </section>
+
+    <!-- APPROACH SECTION -->
+    <section id="approach" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="md:w-1/2 reveal">
+                    <h2 class="text-brand font-bold tracking-widest text-sm mb-2">OUR METHOD</h2>
+                    <h3 class="text-4xl md:text-6xl font-black uppercase mb-8">How We <br>Work</h3>
+                    <p class="text-gray-400 text-lg mb-10">We believe in a strategic journey from your initial idea to a world-class finished product.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full border border-brand flex items-center justify-center text-brand font-black shrink-0">1</div>
+                            <div>
+                                <h5 class="font-bold text-xl uppercase">Consultation</h5>
+                                <p class="text-gray-400 text-sm">Deeply understanding your needs and business goals.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full border border-brand flex items-center justify-center text-brand font-black shrink-0">2</div>
+                            <div>
+                                <h5 class="font-bold text-xl uppercase">Concept Development</h5>
+                                <p class="text-gray-400 text-sm">Creating tailored design ideas that fit your vision.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full border border-brand flex items-center justify-center text-brand font-black shrink-0">3</div>
+                            <div>
+                                <h5 class="font-bold text-xl uppercase">Design Execution</h5>
+                                <p class="text-gray-400 text-sm">Producing high-quality visuals with sharp precision.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full border border-brand flex items-center justify-center text-brand font-black shrink-0">4</div>
+                            <div>
+                                <h5 class="font-bold text-xl uppercase">Production & Delivery</h5>
+                                <p class="text-gray-400 text-sm">Ensuring top-notch finishing and timely global delivery.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- Responsive Grid for Portfolio -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="rounded-lg overflow-hidden group fade-in-section"><img src="https://placehold.co/600x400/D4AF37/000000?text=Packaging" alt="Project 1" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"></div>
-                    <div class="rounded-lg overflow-hidden group fade-in-section"><img src="https://placehold.co/600x400/FFFFFF/000000?text=Branding" alt="Project 2" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"></div>
-                    <div class="rounded-lg overflow-hidden group fade-in-section"><img src="https://placehold.co/600x400/D4AF37/000000?text=Signage" alt="Project 3" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"></div>
-                    <div class="rounded-lg overflow-hidden group fade-in-section"><img src="https://placehold.co/600x400/FFFFFF/000000?text=Souvenir" alt="Project 4" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"></div>
-                    <div class="rounded-lg overflow-hidden group fade-in-section"><img src="https://placehold.co/600x400/D4AF37/000000?text=Print" alt="Project 5" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"></div>
-                    <div class="rounded-lg overflow-hidden group fade-in-section"><img src="https://placehold.co/600x400/FFFFFF/000000?text=Marketing" alt="Project 6" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"></div>
+                <div class="md:w-1/2 grid grid-cols-2 gap-4 reveal">
+                    <div class="bg-gray-800 h-64 rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="WhatsApp Image 2026-04-20 at 04.03.59.jpeg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500" alt="Work Example">
+                    </div>
+                    <div class="bg-gray-800 h-80 rounded-3xl overflow-hidden shadow-2xl mt-8">
+                        <img src="WhatsApp Image 2026-04-20 at 04.04.00.jpeg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500" alt="Work Example">
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CTA Section / Consultation -->
-        <section id="quote" class="bg-[#1a1a1a] py-20">
-            <div class="container mx-auto px-6 text-center fade-in-section">
-                <h2 class="text-3xl md:text-4xl font-bold">Ready to Be Extraordinary?</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-gray-400">Let's discuss how we can elevate your brand. Schedule a free, no-obligation consultation with our experts today.</p>
-                <div class="mt-8">
-                    <a href="#" class="gold-bg text-black font-bold py-4 px-8 rounded-full text-lg hover:bg-yellow-500 transition-transform duration-300 inline-block transform hover:scale-105">
-                        Book a Free Consultation
-                    </a>
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-brand font-bold tracking-widest text-sm mb-2">LATEST PROJECTS</h2>
+                <h3 class="text-4xl md:text-6xl font-black uppercase">Extraordinary Work</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project Item 1 -->
+                <div class="relative group rounded-3xl overflow-hidden aspect-square reveal">
+                    <img src="WhatsApp Image 2026-04-20 at 04.04.00 (1).jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="BOSCOSharp Portfolio">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-8">
+                        <h5 class="text-brand font-black text-xl uppercase">Visual Identity</h5>
+                        <p class="text-white text-sm">Complete Branding Strategy</p>
+                    </div>
+                </div>
+                <!-- Project Item 2 -->
+                <div class="relative group rounded-3xl overflow-hidden aspect-square reveal" style="transition-delay: 0.1s;">
+                    <img src="WhatsApp Image 2026-04-20 at 04.04.00 (2).jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="BOSCOSharp Portfolio">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-8">
+                        <h5 class="text-brand font-black text-xl uppercase">Product Packaging</h5>
+                        <p class="text-white text-sm">Shelf-Ready Design</p>
+                    </div>
+                </div>
+                <!-- Project Item 3 -->
+                <div class="relative group rounded-3xl overflow-hidden aspect-square reveal" style="transition-delay: 0.2s;">
+                    <img src="WhatsApp Image 2026-04-20 at 04.04.01.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="BOSCOSharp Portfolio">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-8">
+                        <h5 class="text-brand font-black text-xl uppercase">Modern Signage</h5>
+                        <p class="text-white text-sm">Corporate Storefront</p>
+                    </div>
+                </div>
+                <!-- Add more as needed -->
+                <div class="relative group rounded-3xl overflow-hidden aspect-square reveal" style="transition-delay: 0.3s;">
+                    <img src="WhatsApp Image 2026-04-20 at 04.04.01 (2).jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="BOSCOSharp Portfolio">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-8">
+                        <h5 class="text-brand font-black text-xl uppercase">Vehicle Branding</h5>
+                        <p class="text-white text-sm">Strategic Mobile Ads</p>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+            
+            <div class="mt-16 text-center reveal">
+                <a href="https://www.instagram.com/bosco_sharp_universal_concept" target="_blank" class="text-white border-b-2 border-brand pb-2 font-black uppercase text-sm tracking-widest hover:text-brand transition">See more on Instagram</a>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer id="contact" class="bg-black py-10">
-        <div class="container mx-auto px-6">
-            <!-- Responsive footer layout -->
-            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-6 md:space-y-0">
-                <div>
-                    <h3 class="text-xl font-bold gold-accent">BOSCO<span class="text-white">SHARP</span></h3>
-                    <p class="text-gray-400 text-sm mt-2 max-w-xs">
-                        Suite B201, God's Heritage Plaza, Old Federal Secretariat Rd. Area 1, Abuja, Nigeria.
-                    </p>
-                    <p class="text-gray-400 text-sm mt-2">
-                        <a href="tel:07054825152" class="hover:gold-accent">07054825152</a>, <a href="tel:07043595530" class="hover:gold-accent">07043595530</a>
-                    </p>
+    <!-- CONTACT / FOOTER -->
+    <footer id="contact" class="bg-gray-900/50 pt-24 pb-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
+                <div class="reveal">
+                    <h3 class="text-4xl md:text-6xl font-black uppercase mb-8 leading-tight">Ready to <br><span class="text-brand">Go Sharp?</span></h3>
+                    <p class="text-gray-400 text-lg mb-10">We partner with startups, SMEs, and corporate giants to create impactful visual experiences.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <span class="text-brand font-bold">ADDRESS:</span>
+                            <span class="text-gray-300">Suite B201, God's Heritage Plaza, Area 1, Abuja.</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="text-brand font-bold">PHONE:</span>
+                            <span class="text-gray-300">07054825152 | 07043595530</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-gray-400 text-sm">
-                    <p>&copy; <span id="year"></span> Bosco Sharp Universal Concept. All Rights Reserved.</p>
-                    <p class="mt-1">Website by Fundbridge Africa</p>
+                
+                <div class="glass-card p-10 rounded-3xl reveal">
+                    <h5 class="text-2xl font-black uppercase mb-6">Book a Strategy Session</h5>
+                    <p class="text-gray-400 mb-8 text-sm">Let's discuss your project via Google Meet or a phone call.</p>
+                    <!-- Placeholder for Calendly / CRM form -->
+                    <div class="bg-white/5 border-2 border-dashed border-white/20 rounded-2xl p-12 text-center">
+                        <p class="text-gray-500 text-xs mb-4"></p>
+                        <a href="#" class="bg-brand text-black px-8 py-3 rounded-xl font-bold uppercase text-sm">Schedule Meeting</a>
+                    </div>
                 </div>
+            </div>
+
+            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <img src="logo.jpg" class="h-8 opacity-50" alt="Logo">
+                <p class="text-gray-500 text-xs uppercase tracking-widest">&copy; <span id="year"></span> BOSCOSharp LTD.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Update year
+        document.getElementById('year').innerText = new Date().getFullYear();
 
-        // Intersection Observer for fade-in animations
-        const sections = document.querySelectorAll('.fade-in-section');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Scroll Reveal
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
                 }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Initial check
+        reveal();
     </script>
-
 </body>
 </html>
-
