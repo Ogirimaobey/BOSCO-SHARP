@@ -51,6 +51,17 @@
             transform: translateY(-4px);
         }
 
+        /* Scroll reveal animation styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Portfolio item transitions */
         .portfolio-item {
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -68,21 +79,21 @@
     <header class="fixed w-full z-50 bg-black/95 backdrop-blur-md border-b border-white/10">
         <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <a href="index.html">
+                <a href="#home">
                     <img src="WhatsApp Image 2026-04-20 at 03.28.44.jpeg" alt="BOSCOSharp LTD" class="h-10 md:h-14 w-auto object-contain" onerror="this.src='https://placehold.co/200x80/000/E6FF00?text=BOSCOSharp+LTD'">
                 </a>
             </div>
 
-            <!-- Desktop Nav Links -->
+            <!-- Desktop Nav Links - Streamlined and Distinct -->
             <ul class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest text-gray-400">
-                <li><a href="index.html" class="hover:text-brand transition">Home</a></li>
-                <li><a href="index.html#services" class="hover:text-brand transition">Services</a></li>
-                <li><a href="product.html" class="text-brand transition">Products & Work</a></li>
-                <li><a href="index.html#contact" class="hover:text-brand transition">Contact</a></li>
+                <li><a href="#home" class="hover:text-brand transition">Home</a></li>
+                <li><a href="#services" class="hover:text-brand transition">Services</a></li>
+                <li><a href="#portfolio" class="hover:text-brand transition">Our Work</a></li>
+                <li><a href="#contact" class="hover:text-brand transition">Contact</a></li>
             </ul>
 
             <!-- CTA -->
-            <a href="index.html#contact" class="hidden sm:block bg-brand text-black px-6 py-2.5 rounded-full font-extrabold text-sm hover:scale-105 transition transform glow-hover">
+            <a href="#contact" class="hidden sm:block bg-brand text-black px-6 py-2.5 rounded-full font-extrabold text-sm hover:scale-105 transition transform glow-hover">
                 GET A QUOTE
             </a>
 
@@ -96,36 +107,136 @@
         
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-black border-b border-white/10 px-6 py-6 space-y-4 font-bold uppercase tracking-widest text-center">
-            <a href="index.html" class="block py-2 text-gray-400">Home</a>
-            <a href="index.html#services" class="block py-2 text-gray-400">Services</a>
-            <a href="product.html" class="block py-2 text-brand">Products & Work</a>
-            <a href="index.html#contact" class="block py-2 text-gray-400">Contact</a>
+            <a href="#home" class="block py-2 text-gray-400">Home</a>
+            <a href="#services" class="block py-2 text-gray-400">Services</a>
+            <a href="#portfolio" class="block py-2 text-brand">Our Work</a>
+            <a href="#contact" class="block py-2 text-gray-400">Contact</a>
         </div>
     </header>
 
-    <!-- PORTFOLIO HEADER / HERO -->
-    <section class="relative pt-32 pb-12 overflow-hidden bg-gradient-to-b from-neutral-950 to-black">
+    <!-- HERO / INTRO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center pt-32 pb-12 overflow-hidden bg-gradient-to-b from-neutral-950 to-black">
         <div class="absolute -top-48 -right-48 w-96 h-96 bg-brand/10 blur-[150px] rounded-full"></div>
         <div class="absolute -bottom-48 -left-48 w-96 h-96 bg-brand/5 blur-[150px] rounded-full"></div>
         
-        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
-            <h2 class="text-brand font-black tracking-[0.4em] uppercase text-xs md:text-sm mb-3">
-                THE PHYSICAL GALLERY
-            </h2>
-            <h1 class="text-4xl md:text-7xl font-black uppercase mb-6 leading-none">
-                OUR PRODUCTS & <br class="hidden md:block">
-                <span class="text-brand">EXTRAORDINARY WORK</span>
-            </h1>
-            <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-                Explore a highly curated vault of high-end branding, bespoke packaging designs, and large-format structural signage produced on-demand for leading industry clients.
-            </p>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7">
+                <h2 class="text-brand font-black tracking-[0.4em] uppercase text-xs md:text-sm mb-3 reveal">
+                    ORDINARY IS EVERYWHERE
+                </h2>
+                <h1 class="text-4xl md:text-7xl font-black uppercase mb-6 leading-none reveal">
+                    EXTRAORDINARY IS <br>
+                    <span class="text-brand">BOSCOSharp LTD.</span>
+                </h1>
+                <p class="text-gray-300 text-sm md:text-base max-w-2xl leading-relaxed mb-8 reveal">
+                    A premium creative design and production venture. We build exceptional visual identities, high-end packaging concepts, and storefront signage solutions engineered to attract immediate audience attention.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 reveal">
+                    <a href="#portfolio" class="bg-brand text-black text-center py-4 px-8 rounded-xl text-xs font-black uppercase tracking-wider transition hover:shadow-[0_0_20px_rgba(230,255,0,0.3)]">
+                        EXPLORE THE GALLERY
+                    </a>
+                    <a href="#contact" class="border border-white/20 hover:border-brand text-white text-center py-4 px-8 rounded-xl text-xs font-black uppercase tracking-wider transition">
+                        GET STARTED TODAY
+                    </a>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-5 reveal">
+                <!-- Stacked Work Visual Preview Card -->
+                <div class="relative w-full aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 bg-neutral-900/40 p-4">
+                    <img src="WhatsApp Image 2026-06-06 at 03.48.24.jpeg" class="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition duration-700" alt="BOSCOSharp Presentation" onerror="this.src='https://placehold.co/500x600/111/e6ff00?text=BOSCOSharp+Mastery'">
+                    <div class="absolute bottom-8 left-8 right-8 p-6 bg-black/80 backdrop-blur-md rounded-2xl border border-white/15">
+                        <span class="text-brand text-[10px] font-black uppercase tracking-widest">LATEST CONCEPT RELEASE</span>
+                        <h4 class="text-white text-sm font-bold uppercase mt-1">Bespoke Identity Suite</h4>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- SPECIAL AMPLIFIED PROJECT FEATURE: OBI CUBANA -->
-    <section class="py-12 bg-black relative">
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-24 bg-brand/5 scroll-mt-24">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="relative overflow-hidden rounded-3xl border border-brand/20 bg-gradient-to-r from-neutral-900 via-neutral-950 to-black p-8 md:p-12 shadow-[0_0_50px_rgba(230,255,0,0.05)]">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-brand font-bold tracking-widest text-sm mb-2">OUR EXPERTISE</h2>
+                <h3 class="text-4xl md:text-6xl font-black uppercase">Service Overview</h3>
+                <p class="text-gray-400 max-w-2xl mx-auto text-xs md:text-sm mt-3">We engineer every element with custom materials and architectural precision to communicate maximum market value.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Branding Card -->
+                <div class="glass-card p-10 rounded-3xl reveal">
+                    <div class="mb-6 text-brand">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-black mb-4 uppercase">1. Branding</h4>
+                    <ul class="text-gray-400 space-y-2 mb-8 text-sm">
+                        <li>• Logo design</li>
+                        <li>• Brand identity development</li>
+                        <li>• Brand strategy and positioning</li>
+                        <li>• Brand guidelines (brand book)</li>
+                        <li>• Business cards and stationery design</li>
+                    </ul>
+                    <div class="pt-6 border-t border-white/10">
+                        <p class="text-brand text-xs font-bold uppercase tracking-widest mb-2">Value:</p>
+                        <p class="text-white text-sm italic">We ensure your brand is consistent, memorable, and professional across all platforms.</p>
+                    </div>
+                </div>
+
+                <!-- Packaging Card -->
+                <div class="glass-card p-10 rounded-3xl reveal" style="transition-delay: 0.1s;">
+                    <div class="mb-6 text-brand">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-black mb-4 uppercase">2. Packaging Design</h4>
+                    <ul class="text-gray-400 space-y-2 mb-8 text-sm">
+                        <li>• Product packaging design</li>
+                        <li>• Label design</li>
+                        <li>• Custom packaging concepts</li>
+                        <li>• Packaging mockups and visualization</li>
+                        <li>• Print-ready packaging files</li>
+                    </ul>
+                    <div class="pt-6 border-t border-white/10">
+                        <p class="text-brand text-xs font-bold uppercase tracking-widest mb-2">Value:</p>
+                        <p class="text-white text-sm italic">We create packaging that stands out on shelves and communicates product value effectively.</p>
+                    </div>
+                </div>
+
+                <!-- Signage Card -->
+                <div class="glass-card p-10 rounded-3xl reveal" style="transition-delay: 0.2s;">
+                    <div class="mb-6 text-brand">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+                    </div>
+                    <h4 class="text-2xl font-black mb-4 uppercase">3. Signage</h4>
+                    <ul class="text-gray-400 space-y-2 mb-8 text-sm">
+                        <li>• Indoor and outdoor signage</li>
+                        <li>• Storefront signs</li>
+                        <li>• Banners and flex prints</li>
+                        <li>• Vehicle branding (wraps and decals)</li>
+                        <li>• Large-format printing</li>
+                    </ul>
+                    <div class="pt-6 border-t border-white/10">
+                        <p class="text-brand text-xs font-bold uppercase tracking-widest mb-2">Value:</p>
+                        <p class="text-white text-sm italic">We help businesses attract attention and strengthen physical brand presence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION (UNIFIED PRODUCTS & GALLERY) -->
+    <section id="portfolio" class="py-24 bg-black scroll-mt-24 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-brand font-bold tracking-widest text-sm mb-2">THE PHYSICAL GALLERY</h2>
+                <h3 class="text-4xl md:text-6xl font-black uppercase">OUR PORTFOLIO</h3>
+                <p class="text-gray-400 max-w-xl mx-auto mt-4 text-xs md:text-sm">Explore our highly curated vault of high-end branding, bespoke packaging designs, and structural signage produced for leading industry clients.</p>
+            </div>
+
+            <!-- SPECIAL AMPLIFIED PROJECT FEATURE: OBI CUBANA -->
+            <div class="relative overflow-hidden rounded-3xl border border-brand/20 bg-gradient-to-r from-neutral-900 via-neutral-950 to-black p-8 md:p-12 shadow-[0_0_50px_rgba(230,255,0,0.05)] reveal mb-20">
                 <!-- Golden Accent Border Top -->
                 <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand to-transparent"></div>
                 
@@ -141,7 +252,7 @@
                             <span class="text-brand">OBI CUBANA EDITION</span>
                         </h3>
                         <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
-                            We engineered this luxury, high-end design for the premium brand lines associated with African business icon <strong>Obi Cubana</strong>. Designed to command supreme shelf visibility, this packaging incorporates premium tactile paper stocks, precision metallic embossing, and high-density luxury structures.
+                            We engineered this luxury, high-end packaging concept for the premium product lines associated with African business icon <strong>Obi Cubana</strong>. Designed to command supreme shelf visibility, this packaging incorporates premium heavy structural fiberboard, precision golden hot-stamping, and tactile texture patterns.
                         </p>
                         <p class="text-gray-400 text-xs md:text-sm italic border-l-2 border-brand pl-4 mb-8">
                             "Ordinary brand presentation is easily forgotten. True luxury starts with custom design packaging engineered by BOSCOSharp to communicate prestige from the first touch."
@@ -168,27 +279,21 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- INTERACTIVE PORTFOLIO/PRODUCT CATALOGUE SECTION -->
-    <section class="py-20 bg-black">
-        <div class="max-w-7xl mx-auto px-6">
-            
             <!-- Category Filter Row -->
-            <div class="flex flex-wrap justify-center gap-2 mb-16">
-                <button onclick="filterVault('all')" class="filter-btn active bg-brand text-black font-black text-xs md:text-sm px-6 py-3 rounded-full uppercase tracking-wider transition-all duration-300">All Masterpieces</button>
-                <button onclick="filterVault('packaging')" class="filter-btn border border-white/10 text-gray-400 hover:text-brand hover:border-brand font-black text-xs md:text-sm px-6 py-3 rounded-full uppercase tracking-wider transition-all duration-300">Packaging</button>
-                <button onclick="filterVault('signage')" class="filter-btn border border-white/10 text-gray-400 hover:text-brand hover:border-brand font-black text-xs md:text-sm px-6 py-3 rounded-full uppercase tracking-wider transition-all duration-300">Signage</button>
-                <button onclick="filterVault('branding')" class="filter-btn border border-white/10 text-gray-400 hover:text-brand hover:border-brand font-black text-xs md:text-sm px-6 py-3 rounded-full uppercase tracking-wider transition-all duration-300">Branding</button>
-                <button onclick="filterVault('souvenirs')" class="filter-btn border border-white/10 text-gray-400 hover:text-brand hover:border-brand font-black text-xs md:text-sm px-6 py-3 rounded-full uppercase tracking-wider transition-all duration-300">Souvenirs & Print</button>
+            <div class="flex flex-wrap justify-center gap-2 mb-16 reveal">
+                <button onclick="filterVault('all')" class="filter-btn active bg-brand text-black font-black text-xs px-6 py-3 rounded-full uppercase tracking-wider transition-all duration-300">All Masterpieces</button>
+                <button onclick="filterVault('packaging')" class="filter-btn border border-white/10 text-gray-400 hover:text-brand hover:border-brand font-black text-xs px-6 py-3 rounded-full uppercase tracking-wider transition-all duration-300">Packaging</button>
+                <button onclick="filterVault('signage')" class="filter-btn border border-white/10 text-gray-400 hover:text-brand hover:border-brand font-black text-xs px-6 py-3 rounded-full uppercase tracking-wider transition-all duration-300">Signage</button>
+                <button onclick="filterVault('branding')" class="filter-btn border border-white/10 text-gray-400 hover:text-brand hover:border-brand font-black text-xs px-6 py-3 rounded-full uppercase tracking-wider transition-all duration-300">Branding</button>
+                <button onclick="filterVault('souvenirs')" class="filter-btn border border-white/10 text-gray-400 hover:text-brand hover:border-brand font-black text-xs px-6 py-3 rounded-full uppercase tracking-wider transition-all duration-300">Souvenirs & Print</button>
             </div>
 
             <!-- PRODUCT SCROLLABLE GRID -->
             <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Project 1: Packaging -->
-                <div class="portfolio-item packaging cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.20.jpeg', 'Premium Cylindrical Wine Tube Box', 'Luxury rigid cylindrical container engineered with textured linen stock, gold foil stamping, and structured structural inner foam dividers for premium wine presentation.')">
+                <div class="portfolio-item packaging cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card reveal" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.20.jpeg', 'Premium Cylindrical Wine Tube Box', 'Luxury rigid cylindrical container engineered with textured linen stock, gold foil stamping, and structured structural inner foam dividers for premium wine presentation.')">
                     <img src="WhatsApp Image 2026-06-06 at 03.48.20.jpeg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Packaging Project" onerror="this.src='https://placehold.co/600x600/111/e6ff00?text=Luxury+Cylindrical+Box'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-95 md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span class="text-brand text-xs font-bold uppercase tracking-widest mb-1">Packaging Design</span>
@@ -198,7 +303,7 @@
                 </div>
 
                 <!-- Project 2: Packaging -->
-                <div class="portfolio-item packaging cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.20 (1).jpeg', 'Luxury Rigid Magnetic Box', 'High-end custom-molded clamshell container styled with thick fiberboard structure and secure magnetic flip locks designed for premium fashion items.')">
+                <div class="portfolio-item packaging cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card reveal" style="transition-delay: 0.1s;" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.20 (1).jpeg', 'Luxury Rigid Magnetic Box', 'High-end custom-molded clamshell container styled with thick fiberboard structure and secure magnetic flip locks designed for premium fashion items.')">
                     <img src="WhatsApp Image 2026-06-06 at 03.48.20 (1).jpeg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Packaging Project" onerror="this.src='https://placehold.co/600x600/111/e6ff00?text=Magnetic+Gift+Box'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-95 md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span class="text-brand text-xs font-bold uppercase tracking-widest mb-1">Packaging Design</span>
@@ -208,7 +313,7 @@
                 </div>
 
                 <!-- Project 3: Signage -->
-                <div class="portfolio-item signage cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.21.jpeg', '3D Backlit Acrylic Signage', 'Premium indoor brand display fabricated with custom-cut acrylic panels, high-density LED backing, and precise mounting frames.')">
+                <div class="portfolio-item signage cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card reveal" style="transition-delay: 0.2s;" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.21.jpeg', '3D Backlit Acrylic Signage', 'Premium indoor brand display fabricated with custom-cut acrylic panels, high-density LED backing, and precise mounting frames.')">
                     <img src="WhatsApp Image 2026-06-06 at 03.48.21.jpeg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Signage Project" onerror="this.src='https://placehold.co/600x600/111/e6ff00?text=3D+Backlit+Acrylic+Sign'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-95 md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span class="text-brand text-xs font-bold uppercase tracking-widest mb-1">Signage Solutions</span>
@@ -218,7 +323,7 @@
                 </div>
 
                 <!-- Project 4: Packaging -->
-                <div class="portfolio-item packaging cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.21 (1).jpeg', 'Eco-Friendly Custom Retail Box', 'Structural cardboard retail packaging customized with high-precision brand colors and clean matte print finishing suitable for boutique items.')">
+                <div class="portfolio-item packaging cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card reveal" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.21 (1).jpeg', 'Eco-Friendly Custom Retail Box', 'Structural cardboard retail packaging customized with high-precision brand colors and clean matte print finishing suitable for boutique items.')">
                     <img src="WhatsApp Image 2026-06-06 at 03.48.21 (1).jpeg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Packaging Project" onerror="this.src='https://placehold.co/600x600/111/e6ff00?text=Custom+Retail+Box'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-95 md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span class="text-brand text-xs font-bold uppercase tracking-widest mb-1">Packaging Design</span>
@@ -228,7 +333,7 @@
                 </div>
 
                 <!-- Project 5: Souvenirs -->
-                <div class="portfolio-item souvenirs cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.21 (2).jpeg', 'Corporate Presentation Gift Bags', 'Bespoke corporate merchandise carrier bags crafted from premium heavy board stock with matching ribbon handles.')">
+                <div class="portfolio-item souvenirs cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card reveal" style="transition-delay: 0.1s;" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.21 (2).jpeg', 'Corporate Presentation Gift Bags', 'Bespoke corporate merchandise carrier bags crafted from premium heavy board stock with matching ribbon handles.')">
                     <img src="WhatsApp Image 2026-06-06 at 03.48.21 (2).jpeg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Souvenirs Project" onerror="this.src='https://placehold.co/600x600/111/e6ff00?text=Corporate+Gift+Bags'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-95 md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span class="text-brand text-xs font-bold uppercase tracking-widest mb-1">Corporate Souvenirs</span>
@@ -238,7 +343,7 @@
                 </div>
 
                 <!-- Project 6: Packaging / Obi Cubana -->
-                <div class="portfolio-item packaging cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.22.jpeg', 'Obi Cubana Collaboration Box', 'Elite level brand luxury packaging engineered for Obi Cubana, customized with heavy structural board, tactile high-end paper, and precision foiled elements.')">
+                <div class="portfolio-item packaging cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card reveal" style="transition-delay: 0.2s;" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.22.jpeg', 'Obi Cubana Collaboration Box', 'Elite level brand luxury packaging engineered for Obi Cubana, customized with heavy structural board, tactile high-end paper, and precision foiled elements.')">
                     <img src="WhatsApp Image 2026-06-06 at 03.48.22.jpeg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Packaging Project" onerror="this.src='https://placehold.co/600x600/111/e6ff00?text=Obi+Cubana+Collaboration'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-95 md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span class="text-brand text-xs font-bold uppercase tracking-widest mb-1">Packaging Design</span>
@@ -248,7 +353,7 @@
                 </div>
 
                 <!-- Project 7: Packaging -->
-                <div class="portfolio-item packaging cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.22 (1).jpeg', 'Custom Pull-Out Drawer Box', 'Fitted drawer slip-box designed with thick board and a structural ribbon pull-tab, perfect for high-end boutique retail.')">
+                <div class="portfolio-item packaging cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card reveal" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.22 (1).jpeg', 'Custom Pull-Out Drawer Box', 'Fitted drawer slip-box designed with thick board and a structural ribbon pull-tab, perfect for high-end boutique retail.')">
                     <img src="WhatsApp Image 2026-06-06 at 03.48.22 (1).jpeg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Packaging Project" onerror="this.src='https://placehold.co/600x600/111/e6ff00?text=Drawer+Slip-Box'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-95 md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span class="text-brand text-xs font-bold uppercase tracking-widest mb-1">Packaging Design</span>
@@ -258,7 +363,7 @@
                 </div>
 
                 <!-- Project 8: Souvenirs -->
-                <div class="portfolio-item souvenirs cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.23.jpeg', 'Luxury Hot Foil Gift Bags', 'Custom manufactured luxury gift packaging featuring gold foil brand stamping on a sleek, matte black finish.')">
+                <div class="portfolio-item souvenirs cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card reveal" style="transition-delay: 0.1s;" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.23.jpeg', 'Luxury Hot Foil Gift Bags', 'Custom manufactured luxury gift packaging featuring gold foil brand stamping on a sleek, matte black finish.')">
                     <img src="WhatsApp Image 2026-06-06 at 03.48.23.jpeg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Souvenirs Project" onerror="this.src='https://placehold.co/600x600/111/e6ff00?text=Hot+Foil+Gift+Bags'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-95 md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span class="text-brand text-xs font-bold uppercase tracking-widest mb-1">Luxury Souvenirs</span>
@@ -268,7 +373,7 @@
                 </div>
 
                 <!-- Project 9: Signage -->
-                <div class="portfolio-item signage cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.23 (1).jpeg', 'Acrylic Office Entrance Signage', 'High precision custom acrylic panel designed for corporate front office walls with architectural stainless steel standoff mounts.')">
+                <div class="portfolio-item signage cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card reveal" style="transition-delay: 0.2s;" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.23 (1).jpeg', 'Acrylic Office Entrance Signage', 'High precision custom acrylic panel designed for corporate front office walls with architectural stainless steel standoff mounts.')">
                     <img src="WhatsApp Image 2026-06-06 at 03.48.23 (1).jpeg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Signage Project" onerror="this.src='https://placehold.co/600x600/111/e6ff00?text=Acrylic+Entrance+Sign'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-95 md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span class="text-brand text-xs font-bold uppercase tracking-widest mb-1">Signage Solutions</span>
@@ -278,7 +383,7 @@
                 </div>
 
                 <!-- Project 10: Souvenirs / Branding -->
-                <div class="portfolio-item souvenirs branding cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.24.jpeg', 'Bespoke Brand Identity Suite', 'Integrated corporate branding materials and matching stationery sets, reflecting clean and cohesive visual layout designs.')">
+                <div class="portfolio-item souvenirs branding cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card reveal" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.24.jpeg', 'Bespoke Brand Identity Suite', 'Integrated corporate branding materials and matching stationery sets, reflecting clean and cohesive visual layout designs.')">
                     <img src="WhatsApp Image 2026-06-06 at 03.48.24.jpeg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Branding Project" onerror="this.src='https://placehold.co/600x600/111/e6ff00?text=Corporate+Identity+Suite'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-95 md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span class="text-brand text-xs font-bold uppercase tracking-widest mb-1">Branding Identity</span>
@@ -288,7 +393,7 @@
                 </div>
 
                 <!-- Project 11: Packaging -->
-                <div class="portfolio-item packaging cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.24 (1).jpeg', 'Cosmetics Luxury Bottle Box', 'Textured board slip-box designed with internal custom molding, engineered for high-end boutique and premium skincare lines.')">
+                <div class="portfolio-item packaging cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card reveal" style="transition-delay: 0.1s;" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.24 (1).jpeg', 'Cosmetics Luxury Bottle Box', 'Textured board slip-box designed with internal custom molding, engineered for high-end boutique and premium skincare lines.')">
                     <img src="WhatsApp Image 2026-06-06 at 03.48.24 (1).jpeg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Packaging Project" onerror="this.src='https://placehold.co/600x600/111/e6ff00?text=Luxury+Skincare+Packaging'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-95 md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span class="text-brand text-xs font-bold uppercase tracking-widest mb-1">Packaging Design</span>
@@ -298,7 +403,7 @@
                 </div>
 
                 <!-- Project 12: Branding -->
-                <div class="portfolio-item branding cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.24 (2).jpeg', 'Minimalist Corporate Brand Guide', 'High-end layout templates showcasing corporate collateral, brand identity rules, and business layouts.')">
+                <div class="portfolio-item branding cursor-pointer group relative rounded-3xl overflow-hidden aspect-square glass-card reveal" style="transition-delay: 0.2s;" onclick="openLightbox('WhatsApp Image 2026-06-06 at 03.48.24 (2).jpeg', 'Minimalist Corporate Brand Guide', 'High-end layout templates showcasing corporate collateral, brand identity rules, and business layouts.')">
                     <img src="WhatsApp Image 2026-06-06 at 03.48.24 (2).jpeg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="Branding Project" onerror="this.src='https://placehold.co/600x600/111/e6ff00?text=Brand+Identity+Guide'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-95 md:opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
                         <span class="text-brand text-xs font-bold uppercase tracking-widest mb-1">Branding Identity</span>
@@ -307,6 +412,85 @@
                     </div>
                 </div>
 
+                <!-- TARGET MARKET EXTRAS PANEL -->
+                <div class="portfolio-item branding packaging signage souvenirs glass-card p-8 rounded-3xl flex flex-col justify-center reveal" style="transition-delay: 0.3s;">
+                    <h5 class="text-brand font-black uppercase text-lg mb-4">Target Market Segment</h5>
+                    <p class="text-xs text-gray-400 mb-4 leading-relaxed">Our custom operations are tailored strictly for enterprises requiring premium visual visibility.</p>
+                    <ul class="text-gray-300 text-xs space-y-2 mb-6">
+                        <li>• Tech & Consumer Product Startups</li>
+                        <li>• High-End Retail Boutiques</li>
+                        <li>• Established SMEs looking to scale</li>
+                        <li>• Corporate Offices & Real Estate Signage</li>
+                    </ul>
+                    <a href="#contact" class="bg-white/10 hover:bg-brand hover:text-black text-white text-center py-2.5 rounded-xl text-xs font-bold uppercase transition">Consult Our Architects</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- APPROACH / PROCESS SECTION -->
+    <section class="py-24 border-t border-white/5 bg-neutral-950/40">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="md:w-1/2 reveal">
+                    <h2 class="text-brand font-bold tracking-widest text-sm mb-2">OUR PROCESS</h2>
+                    <h3 class="text-4xl md:text-6xl font-black uppercase mb-8">How We <br>Work</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full border border-brand flex items-center justify-center text-brand font-black shrink-0">1</div>
+                            <div>
+                                <h5 class="font-bold text-xl uppercase">Consultation</h5>
+                                <p class="text-gray-400 text-sm">Understanding client needs and goals.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full border border-brand flex items-center justify-center text-brand font-black shrink-0">2</div>
+                            <div>
+                                <h5 class="font-bold text-xl uppercase">Concept Development</h5>
+                                <p class="text-gray-400 text-sm">Creating tailored design ideas.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full border border-brand flex items-center justify-center text-brand font-black shrink-0">3</div>
+                            <div>
+                                <h5 class="font-bold text-xl uppercase">Design Execution</h5>
+                                <p class="text-gray-400 text-sm">Producing high-quality visuals.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 rounded-full border border-brand flex items-center justify-center text-brand font-black shrink-0">4</div>
+                            <div>
+                                <h5 class="font-bold text-xl uppercase">Production & Delivery</h5>
+                                <p class="text-gray-400 text-sm">Ensuring top-notch finishing and timely delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 grid grid-cols-2 gap-4 reveal">
+                    <div class="h-64 rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="WhatsApp Image 2026-04-20 at 04.03.59.jpeg" class="w-full h-full object-cover transition duration-500" alt="Work Example" onerror="this.src='https://placehold.co/400x400/000/E6FF00?text=Design'">
+                    </div>
+                    <div class="h-80 rounded-3xl overflow-hidden shadow-2xl mt-8">
+                        <img src="WhatsApp Image 2026-04-20 at 04.04.00.jpeg" class="w-full h-full object-cover transition duration-500" alt="Work Example" onerror="this.src='https://placehold.co/400x400/000/E6FF00?text=Production'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION & VISION -->
+    <section class="py-24 bg-brand text-black">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+            <div class="reveal">
+                <h3 class="text-4xl font-black uppercase mb-6">Our Mission</h3>
+                <p class="text-xl font-medium leading-relaxed">To provide creative and impactful design solutions that help businesses grow, stand out, and succeed.</p>
+            </div>
+            <div class="reveal" style="transition-delay: 0.2s;">
+                <h3 class="text-4xl font-black uppercase mb-6">Our Vision</h3>
+                <p class="text-xl font-medium leading-relaxed">To become a trusted creative partner known for delivering innovative branding, packaging, and signage solutions.</p>
             </div>
         </div>
     </section>
@@ -348,11 +532,11 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer id="contact" class="bg-gray-950/70 pt-20 pb-12 border-t border-white/5">
+    <!-- FOOTER / CONTACT SECTION -->
+    <footer id="contact" class="bg-gray-950/70 pt-20 pb-12 border-t border-white/5 scroll-mt-24">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
-                <div>
+                <div class="reveal">
                     <h3 class="text-3xl md:text-5xl font-black uppercase mb-6 leading-tight">
                         WANT TO GO <span class="text-brand">EXTRAORDINARY?</span>
                     </h3>
@@ -365,13 +549,26 @@
                     </div>
                 </div>
 
-                <div class="glass-card p-8 md:p-10 rounded-3xl self-center">
+                <div class="glass-card p-8 md:p-10 rounded-3xl self-center reveal">
                     <h5 class="text-xl font-black uppercase mb-3">Book Your Design Consultation</h5>
                     <p class="text-gray-400 text-xs mb-6">Partner with the most proactive branding agency in Abuja today.</p>
                     <a href="mailto:ogirima@fundbridgeafrica.online" class="bg-brand text-black text-center py-4 rounded-xl block text-xs font-black uppercase tracking-wider glow-hover transition">
                         GET STARTED TODAY
                     </a>
                 </div>
+            </div>
+
+            <!-- Interactive Map Integration Area -->
+            <div class="w-full h-80 rounded-3xl overflow-hidden mb-16 reveal border border-white/10 shadow-2xl">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.598284534725!2d7.479904814786443!3d9.00940529352932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e7456d6d45b7b%3A0x8f3c46a6e7c10b14!2sOld%20Federal%20Secretariat%20Complex!5e0!3m2!1sen!2sng!4v1662650000000!5m2!1sen!2sng" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
 
             <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -394,6 +591,28 @@
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+
+        // Close mobile dropdown on nav link clicks
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Scroll reveal controller
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
 
         // Portfolio visual filter engine
         function filterVault(category) {
